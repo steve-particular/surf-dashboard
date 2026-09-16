@@ -426,4 +426,7 @@ body {
 .pdf-mode .forecast-chart-container {
   flex: 1 1 100% !important;
 }
+.pdf-mode .maps-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
 

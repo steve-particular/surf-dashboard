@@ -44,8 +44,12 @@ export const dashboardData = {
     { date: "02 set", spot: "Punta Sabbioni", duration: "2h 05", waves: 28 }
   ],
   maps: [
-    { label: "Adesso · mer 16, 06 UTC", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/000.MWH.png", highlight: false },
-    { label: "+24h · gio 17, 06 UTC", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/024.MWH.png", highlight: false },
-    { label: "+48h · gio 18, 06 UTC · picco 1,4 m", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/048.MWH.png", highlight: true }
+    { label: "Adesso", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/000.MWH.png", highlight: false },
+    { label: "+3h", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/003.MWH.png", highlight: false },
+    { label: "+6h", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/006.MWH.png", highlight: false },
+    { label: "+9h", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/009.MWH.png", highlight: false },
+    { label: "+12h", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/012.MWH.png", highlight: false },
+    { label: "+24h", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/024.MWH.png", highlight: false },
+    { label: "+48h", src: "https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/048.MWH.png", highlight: true }
   ]
 };
