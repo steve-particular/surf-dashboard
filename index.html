@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mareggia Dashboard</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="_ds/modernist-1281432f-8fa8-4d77-aa60-8373e1cb5e47/styles.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-pal="notte">
+  
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-info">
+        <span class="brand-name">MAREGGIA</span>
+        <span class="header-time" id="header-time">Oggi</span>
+      </div>
+      
+      <div class="nav-links desktop-only">
+        <a href="#oggi" class="nav-link active">Oggi</a>
+        <a href="#7giorni" class="nav-link">7 giorni</a>
+        <a href="#spot" class="nav-link">Spot</a>
+        <a href="#sessioni" class="nav-link">Sessioni</a>
+      </div>
+      
+      <div class="theme-switch-container">
+        <select id="theme-selector" class="theme-selector">
+          <option value="notte" selected>Tema: Notte</option>
+          <option value="marea">Tema: Marea</option>
+          <option value="sabbia">Tema: Sabbia</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-container">
+    
+    <!-- Hero / Main Spot Section -->
+    <section id="oggi" class="hero-section">
+      <div class="spot-status card-box">
+        <div class="k-label">Punta Sabbioni · adesso</div>
+        <div class="verdict" id="verdict">SÌ</div>
+        <p class="summary" id="summary">Caricamento...</p>
+        
+        <div class="rating-bar" id="rating-bar"></div>
+        <div class="k-label mt-3">Rating <span id="rating-val"></span> / 10 · finestra <span id="window-val"></span></div>
+        
+        <div class="action-buttons desktop-only mt-4">
+          <button class="btn btn-primary" id="board-btn">RIGIDA</button>
+          <button class="btn btn-secondary">Avvisami alle 06:30</button>
+        </div>
+      </div>
+      
+      <div class="spot-metrics card-box p-0">
+        <div class="metrics-grid">
+          <div class="metric-cell">
+            <div class="k-label">Onda</div>
+            <div class="metric-value"><span id="wave-val">0</span><span class="unit"> m</span></div>
+            <div class="metric-sub" id="wave-range"></div>
+          </div>
+          <div class="metric-cell">
+            <div class="k-label">Periodo</div>
+            <div class="metric-value"><span id="period-val">0</span><span class="unit"> s</span></div>
+            <div class="metric-sub" id="period-desc"></div>
+          </div>
+          <div class="metric-cell">
+            <div class="k-label">Direzione onda</div>
+            <div class="metric-flex">
+              <svg width="34" height="34" viewBox="0 0 34 34" id="wave-arrow">
+                <line x1="17" y1="30" x2="17" y2="8" stroke="currentColor" stroke-width="2"/>
+                <polygon points="17,2 23,12 11,12" fill="currentColor"/>
+              </svg>
+              <div>
+                <div class="metric-value-sm" id="wave-dir"></div>
+                <div class="metric-sub" id="wave-deg"></div>
+              </div>
+            </div>
+          </div>
+          <div class="metric-cell">
+            <div class="k-label">Vento</div>
+            <div class="metric-flex">
+              <svg width="34" height="34" viewBox="0 0 34 34" class="accent-color" id="wind-arrow">
+                <line x1="17" y1="30" x2="17" y2="8" stroke="currentColor" stroke-width="2"/>
+                <polygon points="17,2 23,12 11,12" fill="currentColor"/>
+              </svg>
+              <div>
+                <div class="metric-value-sm" id="wind-speed"></div>
+                <div class="metric-sub accent-color"><span id="wind-dir"></span> · <span id="wind-desc"></span></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="metric-cell span-2 tide-cell">
+            <div class="k-label">Marea · <span id="tide-info"></span></div>
+            <div class="tide-chart">
+              <svg width="100%" height="76" viewBox="0 0 360 76" preserveAspectRatio="none">
+                <line x1="0" y1="66" x2="360" y2="66" stroke="currentColor" stroke-opacity=".25" stroke-width="1"/>
+                <path d="M0 58 C 30 58 50 16 90 14 C 130 12 150 60 190 62 C 230 64 250 20 290 16 C 320 13 340 34 360 44" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line x1="118" y1="0" x2="118" y2="76" stroke="var(--color-accent)" stroke-width="2"/>
+                <circle cx="118" cy="26" r="5" fill="var(--color-accent)"/>
+              </svg>
+              <div class="tide-labels">
+                <span>03</span><span>06</span><span class="accent-color">ora</span><span>12</span><span>15</span><span>18</span><span>21</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="metric-cell">
+            <div class="k-label">Acqua / aria</div>
+            <div class="metric-value"><span id="water-temp"></span><span class="unit">°</span> <span class="muted">/ <span id="air-temp"></span>°</span></div>
+            <div class="metric-sub" id="temp-desc"></div>
+          </div>
+          <div class="metric-cell">
+            <div class="k-label">Affollamento</div>
+            <div class="metric-value" id="crowd-val"></div>
+            <div class="metric-sub" id="crowd-desc"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forecast Section -->
+    <section id="7giorni" class="forecast-section mt-4">
+      <div class="card-box flex-layout">
+        <div class="forecast-chart-container flex-1">
+          <div class="k-label mb-2 flex-between">
+            <span>Prossimi 7 giorni · Punta Sabbioni</span>
+            <span class="tag tag-accent" id="best-forecast"></span>
+          </div>
+          <div class="bar-chart" id="forecast-bars"></div>
+        </div>
+        
+        <div class="webcam-container">
+          <div class="k-label mb-2">Webcam · Punta Sabbioni</div>
+          <div class="grayscale webcam-wrapper">
+            <!-- Simulated iframe for performance -->
+            <div class="webcam-placeholder">▶ PLAY WEBCAM</div>
+          </div>
+          <div class="k-label mt-2 text-muted">Diretta YouTube · audio disattivato</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map & Compare Section -->
+    <section id="spot" class="details-section mt-4">
+      <div class="card-box">
+        <div class="flex-between mb-3">
+          <div class="k-label">Mappe onda · Adriatico</div>
+          <span class="k-label">Altezza significativa + direzione</span>
+        </div>
+        <div class="maps-grid" id="maps-grid"></div>
+      </div>
+    </section>
+
+    <section id="sessioni" class="tables-section mt-4">
+      <div class="card-box p-0 flex-layout-responsive">
+        <div class="compare-container flex-1 p-4 border-r">
+          <div class="k-label mb-3">Confronto spot · adesso</div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Spot</th>
+                  <th>Onda</th>
+                  <th>Per.</th>
+                  <th>Vento</th>
+                  <th>Folla</th>
+                  <th>Rating</th>
+                </tr>
+              </thead>
+              <tbody id="spot-table"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="sessions-container p-4">
+          <div class="k-label mb-3">Sessioni · Dawn Patrol</div>
+          <div id="sessions-list"></div>
+          <div class="k-label mt-3">Settembre · 4 uscite · 6h 20</div>
+          <button class="btn btn-block btn-secondary mobile-only mt-3">Tutte le sessioni</button>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

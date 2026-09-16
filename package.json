@@ -1,0 +1,14 @@
+{
+  "name": "mareggia-dashboard",
+  "version": "1.0.0",
+  "description": "Surf Dashboard and Telegram Bot",
+  "main": "bot.js",
+  "type": "module",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "express": "^4.19.0",
+    "puppeteer": "^22.6.0"
+  }
+}

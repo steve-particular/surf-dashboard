@@ -1,0 +1,32 @@
+name: Daily Surf Report Bot
+
+on:
+  schedule:
+    # Esegue ogni giorno alle 06:00 UTC (che sono le 07:00 o 08:00 in Italia a seconda dell'ora legale)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    # Permette di eseguire il workflow manualmente dal pannello Actions di GitHub
+
+jobs:
+  generate-and-send-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Puppeteer browsers
+        run: npx puppeteer browsers install chrome
+
+      - name: Run Bot Script
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: npm start

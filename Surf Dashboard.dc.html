@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap"><link rel="stylesheet" href="_ds/modernist-1281432f-8fa8-4d77-aa60-8373e1cb5e47/styles.css"><script src="_ds/modernist-1281432f-8fa8-4d77-aa60-8373e1cb5e47/_ds_bundle.js"></script><script src="./image-slot.js"></script><style>
+body[data-pal="marea"]{--color-bg:#eef1f0;--color-surface:#dfe5e4;--color-text:#10222a;--color-accent:#0f7d8c;--color-divider:color-mix(in srgb,#10222a 40%,transparent);--color-accent-100:#e4f4f6;--color-accent-200:#c2e7eb;--color-accent-300:#8fd4dc;--color-accent-400:#4bb6c3;--color-accent-500:#17909f;--color-accent-600:#0c6d7a;--color-accent-700:#0a5460;--color-accent-800:#083c45;--color-accent-900:#0a2b31}
+body[data-pal="sabbia"]{--color-bg:#f2efe8;--color-surface:#e6e1d6;--color-text:#231e17;--color-accent:#b85a22;--color-divider:color-mix(in srgb,#231e17 40%,transparent);--color-accent-100:#f9ece1;--color-accent-200:#f2d7bf;--color-accent-300:#e6b68c;--color-accent-400:#d48b4d;--color-accent-500:#c06726;--color-accent-600:#a44f18;--color-accent-700:#833d12;--color-accent-800:#5f2d0e;--color-accent-900:#3d200d}
+body[data-pal="notte"]{--color-bg:#111a1e;--color-surface:#1b2529;--color-text:#e9eeed;--color-accent:#35c4d6;--color-divider:color-mix(in srgb,#e9eeed 38%,transparent);--color-accent-100:#0e2a30;--color-accent-200:#123a43;--color-accent-300:#175060;--color-accent-400:#1f7d92;--color-accent-500:#2aa8bf;--color-accent-600:#4ed3e3;--color-accent-700:#9fe8f1;--color-accent-800:#c8f2f7;--color-accent-900:#e4fafc}
+body{margin:0;background:var(--color-bg);font-family:"Archivo",system-ui,sans-serif;color:var(--color-text)}
+a{color:var(--color-accent-700)}a:hover{color:var(--color-accent-600)}
+.dv-turn{padding:40px 44px 32px;border-bottom:2px solid var(--color-divider);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}
+.dv-tid{font:800 10px "Archivo",sans-serif;letter-spacing:.08em;padding:4px 8px;background:var(--color-text);color:var(--color-bg);text-decoration:none}
+.dv-tname{font:800 13px/1.2 "Archivo",sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.dv-opts{display:flex;flex-wrap:wrap;gap:36px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:10px;scroll-margin-top:16px}
+.dv-oid{font:800 10.5px "Archivo",sans-serif;letter-spacing:.08em;padding:4px 8px;background:color-mix(in srgb, var(--color-text) 12%, transparent);color:var(--color-text);text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:9px;font:400 11.5px/1.3 "Archivo",sans-serif;color:color-mix(in srgb, var(--color-text) 60%, transparent)}
+.dv-card{max-width:100%;background:var(--color-bg);border:2px solid var(--color-divider);overflow:hidden}
+.dv-opt:target .dv-oid{background:var(--color-accent);color:var(--color-bg)}
+.dv-next{margin:24px 0 0;font:11.5px/1.6 "Archivo",sans-serif;color:color-mix(in srgb, var(--color-text) 55%, transparent)}
+.k{font:800 10px "Archivo",sans-serif;letter-spacing:.11em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent)}
+.n{font:800 40px/1 "Archivo",sans-serif;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.cell{padding:14px 16px}
+</style></helmet>
+
+<section class="dv-turn" id="t0" style="background:var(--color-surface)">
+<div class="dv-thd"><span class="dv-tid" style="background:var(--color-accent)">BRIEF</span><span class="dv-tname">Mareggia — dashboard condizioni · Cavallino Treporti</span></div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:2px solid var(--color-divider);background:var(--color-bg)">
+<div class="cell" style="border-right:2px solid var(--color-divider)"><div class="k">Spot seguiti</div><p style="margin:6px 0 0;font-size:13px">Punta Sabbioni (main) · Camping Mediterraneo · Pizzeria Soleado</p></div>
+<div class="cell" style="border-right:2px solid var(--color-divider)"><div class="k">Quiver</div><p style="margin:6px 0 0;font-size:13px">8'6&quot; rigida con buone condizioni · 8'6&quot; soft quando è piccolo — il verdetto consiglia la tavola</p></div>
+<div class="cell" style="border-right:2px solid var(--color-divider)"><div class="k">Assunzioni</div><p style="margin:6px 0 0;font-size:13px">Adriatico nord: onda corta e vento-dipendente, quindi periodo e vento pesano più dell'altezza. Dati inventati per il mockup.</p></div>
+<div class="cell"><div class="k">Sessioni</div><p style="margin:6px 0 0;font-size:13px">Dati importati da Dawn Patrol (Apple Watch) — sola lettura nel dashboard</p></div>
+</div>
+<p class="dv-next">Palette commutabile dai Tweaks: Marea (teal), Sabbia, Notte. Rispondi con l'id (es. «più come <a class="dv-oid" href="#1a">1a</a> ma con la tabella di <a class="dv-oid" href="#1c">1c</a>»).</p>
+</section>
+
+<section class="dv-turn" id="t1">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Prime direzioni — struttura + range visivo</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Desktop · griglia modulare, verdetto + tutto in una schermata</div>
+<div class="dv-card" style="width:1140px">
+  <div style="display:flex;align-items:center;gap:24px;padding:14px 20px;border-bottom:2px solid var(--color-divider)">
+    <span style="font:800 18px 'Archivo',sans-serif;letter-spacing:-.01em;margin-right:auto">MAREGGIA</span>
+    <span style="font-size:13px;color:var(--color-accent-700)">Oggi</span>
+    <span style="font-size:13px">7 giorni</span>
+    <span style="font-size:13px">Spot</span>
+    <span style="font-size:13px">Sessioni</span>
+    <span class="k" style="border-left:2px solid var(--color-divider);padding-left:16px">Mer 16 set · 07:12</span>
+  </div>
+
+  <div style="display:grid;grid-template-columns:360px minmax(0,1fr);border-bottom:2px solid var(--color-divider)">
+    <div style="padding:24px 20px;border-right:2px solid var(--color-divider)">
+      <div class="k">Punta Sabbioni · adesso</div>
+      <div style="font:800 86px/.86 'Archivo',sans-serif;letter-spacing:-.04em;color:var(--color-accent);margin:10px 0 4px">SÌ</div>
+      <p style="margin:0 0 14px;font-size:14px;max-width:30ch;text-wrap:pretty">Vento NE 8 kn offshore e periodo 7 s: onda ordinata fino a metà mattina. Poi gira e si sfalda.</p>
+      <div style="display:flex;gap:3px;margin-bottom:8px">
+        <div style="width:18px;height:18px;background:var(--color-accent)"></div><div style="width:18px;height:18px;background:var(--color-accent)"></div><div style="width:18px;height:18px;background:var(--color-accent)"></div><div style="width:18px;height:18px;background:var(--color-accent)"></div><div style="width:18px;height:18px;background:var(--color-accent)"></div><div style="width:18px;height:18px;background:var(--color-accent)"></div><div style="width:18px;height:18px;background:var(--color-accent)"></div><div style="width:18px;height:18px;border:2px solid color-mix(in srgb, var(--color-text) 30%, transparent)"></div><div style="width:18px;height:18px;border:2px solid color-mix(in srgb, var(--color-text) 30%, transparent)"></div><div style="width:18px;height:18px;border:2px solid color-mix(in srgb, var(--color-text) 30%, transparent)"></div>
+      </div>
+      <div class="k">Rating 7 / 10 · finestra 06:40 → 10:20</div>
+      <div style="display:flex;gap:8px;margin-top:18px"><button class="btn btn-primary" style="justify-content:flex-start">8'6&quot; RIGIDA</button><button class="btn btn-secondary" style="justify-content:flex-start">Avvisami alle 06:30</button></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:1fr 1fr">
+      <div class="cell" style="border-right:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)"><div class="k">Onda</div><div class="n" style="margin-top:8px">0,9<span style="font-size:18px"> m</span></div><div style="font-size:12px;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin-top:4px">set 0,6–1,1 m</div></div>
+      <div class="cell" style="border-right:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)"><div class="k">Periodo</div><div class="n" style="margin-top:8px">7<span style="font-size:18px"> s</span></div><div style="font-size:12px;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin-top:4px">wind swell corto</div></div>
+      <div class="cell" style="border-right:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)"><div class="k">Direzione onda</div><div style="display:flex;align-items:center;gap:10px;margin-top:10px"><svg width="34" height="34" viewBox="0 0 34 34" style="transform:rotate(135deg)"><line x1="17" y1="30" x2="17" y2="8" stroke="currentColor" stroke-width="2"/><polygon points="17,2 23,12 11,12" fill="currentColor"/></svg><div><div style="font:800 24px 'Archivo',sans-serif">SE</div><div style="font-size:12px;color:color-mix(in srgb, var(--color-text) 60%, transparent)">135°</div></div></div></div>
+      <div class="cell" style="border-bottom:2px solid var(--color-divider)"><div class="k">Vento</div><div style="display:flex;align-items:center;gap:10px;margin-top:10px"><svg width="34" height="34" viewBox="0 0 34 34" style="transform:rotate(225deg);color:var(--color-accent)"><line x1="17" y1="30" x2="17" y2="8" stroke="currentColor" stroke-width="2"/><polygon points="17,2 23,12 11,12" fill="currentColor"/></svg><div><div style="font:800 24px 'Archivo',sans-serif">8 kn</div><div style="font-size:12px;color:var(--color-accent-700)">NE · offshore</div></div></div></div>
+
+      <div class="cell" style="grid-column:span 2;border-right:2px solid var(--color-divider)">
+        <div class="k">Marea · alta 09:48</div>
+        <svg width="100%" height="76" viewBox="0 0 360 76" preserveAspectRatio="none" style="margin-top:6px;display:block">
+          <line x1="0" y1="66" x2="360" y2="66" stroke="currentColor" stroke-opacity=".25" stroke-width="1"/>
+          <path d="M0 58 C 30 58 50 16 90 14 C 130 12 150 60 190 62 C 230 64 250 20 290 16 C 320 13 340 34 360 44" fill="none" stroke="currentColor" stroke-width="2"/>
+          <line x1="118" y1="0" x2="118" y2="76" stroke="var(--color-accent)" stroke-width="2"/>
+          <circle cx="118" cy="26" r="5" fill="var(--color-accent)"/>
+        </svg>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:color-mix(in srgb, var(--color-text) 55%, transparent)"><span>03</span><span>06</span><span style="color:var(--color-accent-700)">ora</span><span>12</span><span>15</span><span>18</span><span>21</span></div>
+      </div>
+      <div class="cell" style="border-right:2px solid var(--color-divider)"><div class="k">Acqua / aria</div><div class="n" style="margin-top:8px;font-size:32px">23°<span style="font-size:18px;color:color-mix(in srgb, var(--color-text) 50%, transparent)"> / 21°</span></div><div style="font-size:12px;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin-top:4px">shorty o niente muta</div></div>
+      <div class="cell"><div class="k">Affollamento</div><div class="n" style="margin-top:8px;font-size:32px">4</div><div style="font-size:12px;color:color-mix(in srgb, var(--color-text) 60%, transparent);margin-top:4px">in acqua · stimato</div></div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:minmax(0,1fr) 300px;border-bottom:2px solid var(--color-divider)">
+    <div style="padding:16px 20px;border-right:2px solid var(--color-divider)">
+      <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:12px"><div class="k">Prossimi 7 giorni · Punta Sabbioni</div><span class="tag tag-accent" style="font-weight:800">MIGLIORE: GIO 18, 06:00–09:00</span></div>
+      <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:2px;align-items:end;height:110px">
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:6px"><div style="height:62%;background:var(--color-text)"></div><div class="k" style="text-align:left">MER 0,9</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:6px"><div style="height:34%;background:color-mix(in srgb, var(--color-text) 35%, transparent)"></div><div class="k">GIO 0,5</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:6px"><div style="height:88%;background:var(--color-accent)"></div><div class="k" style="color:var(--color-accent-700)">GIO 1,4</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:6px"><div style="height:70%;background:var(--color-text)"></div><div class="k">VEN 1,1</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:6px"><div style="height:22%;background:color-mix(in srgb, var(--color-text) 35%, transparent)"></div><div class="k">SAB 0,3</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:6px"><div style="height:18%;background:color-mix(in srgb, var(--color-text) 35%, transparent)"></div><div class="k">DOM 0,2</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:6px"><div style="height:48%;background:var(--color-text)"></div><div class="k">LUN 0,7</div></div>
+      </div>
+    </div>
+    <div style="padding:16px 20px">
+      <div class="k" style="margin-bottom:8px">Webcam · Punta Sabbioni</div>
+      <div class="grayscale" style="height:145px;background:var(--color-text)"><iframe src="https://www.youtube.com/embed/qQujoBHboRQ?autoplay=1&amp;mute=1&amp;playsinline=1" title="Webcam live Punta Sabbioni" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe></div>
+      <div class="k" style="margin-top:6px">Diretta YouTube · audio disattivato</div>
+    </div>
+  </div>
+
+  <div style="border-bottom:2px solid var(--color-divider);padding:16px 20px">
+    <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:12px">
+      <div class="k">Mappe onda · Adriatico — <a href="https://forecast.uoa.gr/en/forecast-maps/wave/adriatic-sea" target="_blank" rel="noreferrer">forecast.uoa.gr</a></div>
+      <span class="k" style="margin-left:auto">Altezza significativa + direzione · WAM</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px">
+      <div><div style="aspect-ratio:4/3;background:var(--color-surface)"><image-slot src="https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/000.MWH.png" id="uoa-wave-00" shape="rect" fit="contain" placeholder="mappa onde UOA · +00h"></image-slot></div><div class="k" style="margin-top:6px">Adesso · mer 16, 06 UTC</div></div>
+      <div><div style="aspect-ratio:4/3;background:var(--color-surface)"><image-slot src="https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/024.MWH.png" id="uoa-wave-24" shape="rect" fit="contain" placeholder="mappa onde UOA · +24h"></image-slot></div><div class="k" style="margin-top:6px">+24h · gio 17, 06 UTC</div></div>
+      <div><div style="aspect-ratio:4/3;background:var(--color-surface)"><image-slot src="https://forecast.uoa.gr/maps/0day/WAM/ION/MWH/048.MWH.png" id="uoa-wave-48" shape="rect" fit="contain" placeholder="mappa onde UOA · +48h (picco)"></image-slot></div><div class="k" style="margin-top:6px;color:var(--color-accent-700)">+48h · gio 18, 06 UTC · picco 1,4 m</div></div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)">
+    <div style="padding:16px 20px;border-right:2px solid var(--color-divider)">
+      <div class="k" style="margin-bottom:8px">Confronto spot · adesso</div>
+      <table class="table"><thead><tr><th>Spot</th><th>Onda</th><th>Per.</th><th>Vento</th><th>Folla</th><th>Rating</th></tr></thead><tbody>
+        <tr><td style="font-weight:800">Punta Sabbioni</td><td>0,9 m</td><td>7 s</td><td>NE 8 kn</td><td>4</td><td><span class="tag tag-accent" style="font-weight:800">7</span></td></tr>
+        <tr><td>Camping Mediterraneo</td><td>0,7 m</td><td>6 s</td><td>NE 9 kn</td><td>0</td><td><span class="tag tag-neutral">5</span></td></tr>
+        <tr><td>Pizzeria Soleado</td><td>0,6 m</td><td>6 s</td><td>NE 10 kn</td><td>2</td><td><span class="tag tag-neutral">4</span></td></tr>
+      </tbody></table>
+    </div>
+    <div style="padding:16px 20px">
+      <div class="k" style="margin-bottom:8px">Sessioni · Dawn Patrol</div>
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--color-divider);font-size:13px"><span>12 set · Punta Sabbioni</span><span style="color:color-mix(in srgb, var(--color-text) 60%, transparent)">1h 40 · 21 onde</span></div>
+      <div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--color-divider);font-size:13px"><span>08 set · Soleado</span><span style="color:color-mix(in srgb, var(--color-text) 60%, transparent)">55 min · 9 onde</span></div>
+      <div style="display:flex;justify-content:space-between;padding:7px 0;font-size:13px"><span>02 set · Punta Sabbioni</span><span style="color:color-mix(in srgb, var(--color-text) 60%, transparent)">2h 05 · 28 onde</span></div>
+      <div class="k" style="margin-top:12px">Settembre · 4 uscite · 6h 20</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1b">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Mobile · verdetto in cima, scroll per il dettaglio</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="393px,852px">
+  <div style="background:var(--color-bg);min-height:100%;padding-top:62px;padding-bottom:34px;font-family:'Archivo',system-ui,sans-serif">
+    <div style="display:flex;align-items:baseline;gap:8px;padding:10px 16px;border-bottom:2px solid var(--color-divider)">
+      <span style="font:800 15px 'Archivo',sans-serif;margin-right:auto">MAREGGIA</span>
+      <span class="k">Mer 07:12</span>
+    </div>
+    <div style="display:flex;border-bottom:2px solid var(--color-divider)">
+      <div style="flex:1;padding:8px 10px;background:var(--color-text);color:var(--color-bg);font:800 11px 'Archivo',sans-serif;letter-spacing:.06em">SABBIONI</div>
+      <div style="flex:1;padding:8px 10px;border-left:2px solid var(--color-divider);font:600 11px 'Archivo',sans-serif;letter-spacing:.06em;color:color-mix(in srgb, var(--color-text) 60%, transparent)">MEDITERR.</div>
+      <div style="flex:1;padding:8px 10px;border-left:2px solid var(--color-divider);font:600 11px 'Archivo',sans-serif;letter-spacing:.06em;color:color-mix(in srgb, var(--color-text) 60%, transparent)">SOLEADO</div>
+    </div>
+    <div style="padding:20px 16px 18px;border-bottom:2px solid var(--color-divider)">
+      <div class="k">Adesso · Punta Sabbioni</div>
+      <div style="font:800 68px/.9 'Archivo',sans-serif;color:var(--color-accent);letter-spacing:-.04em;margin:8px 0 6px">SÌ</div>
+      <p style="margin:0;font-size:14px;text-wrap:pretty">Offshore leggero, 0,9 m a 7 s. Buono fino alle 10:20.</p>
+      <div style="display:flex;gap:3px;margin-top:14px">
+        <div style="flex:1;height:14px;background:var(--color-accent)"></div><div style="flex:1;height:14px;background:var(--color-accent)"></div><div style="flex:1;height:14px;background:var(--color-accent)"></div><div style="flex:1;height:14px;background:var(--color-accent)"></div><div style="flex:1;height:14px;background:var(--color-accent)"></div><div style="flex:1;height:14px;background:var(--color-accent)"></div><div style="flex:1;height:14px;background:var(--color-accent)"></div><div style="flex:1;height:14px;border:2px solid color-mix(in srgb, var(--color-text) 30%, transparent)"></div><div style="flex:1;height:14px;border:2px solid color-mix(in srgb, var(--color-text) 30%, transparent)"></div><div style="flex:1;height:14px;border:2px solid color-mix(in srgb, var(--color-text) 30%, transparent)"></div>
+      </div>
+      <div class="k" style="margin-top:8px">Rating 7/10 · tavola consigliata 8'6&quot; rigida</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:2px solid var(--color-divider)">
+      <div class="cell" style="border-right:2px solid var(--color-divider);padding:12px"><div class="k">Onda</div><div class="n" style="font-size:26px;margin-top:6px">0,9 m</div></div>
+      <div class="cell" style="border-right:2px solid var(--color-divider);padding:12px"><div class="k">Periodo</div><div class="n" style="font-size:26px;margin-top:6px">7 s</div></div>
+      <div class="cell" style="padding:12px"><div class="k">Vento</div><div class="n" style="font-size:26px;margin-top:6px">8 kn</div><div style="font-size:11px;color:var(--color-accent-700)">NE offshore</div></div>
+    </div>
+    <div style="padding:14px 16px;border-bottom:2px solid var(--color-divider)">
+      <div class="k">Marea · alta 09:48</div>
+      <svg width="100%" height="64" viewBox="0 0 320 64" preserveAspectRatio="none" style="margin-top:6px;display:block">
+        <line x1="0" y1="56" x2="320" y2="56" stroke="currentColor" stroke-opacity=".25" stroke-width="1"/>
+        <path d="M0 48 C 26 48 44 12 80 10 C 116 8 134 52 170 54 C 206 56 222 16 258 12 C 286 9 304 30 320 38" fill="none" stroke="currentColor" stroke-width="2"/>
+        <line x1="104" y1="0" x2="104" y2="64" stroke="var(--color-accent)" stroke-width="2"/><circle cx="104" cy="20" r="4.5" fill="var(--color-accent)"/>
+      </svg>
+    </div>
+    <div style="padding:14px 16px;border-bottom:2px solid var(--color-divider)">
+      <div class="k" style="margin-bottom:10px">7 giorni</div>
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;align-items:end;height:84px">
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px"><div style="height:60%;background:var(--color-text)"></div><div class="k" style="font-size:9px">MER</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px"><div style="height:34%;background:color-mix(in srgb, var(--color-text) 35%, transparent)"></div><div class="k" style="font-size:9px">GIO</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px"><div style="height:88%;background:var(--color-accent)"></div><div class="k" style="font-size:9px;color:var(--color-accent-700)">GIO</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px"><div style="height:70%;background:var(--color-text)"></div><div class="k" style="font-size:9px">VEN</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px"><div style="height:22%;background:color-mix(in srgb, var(--color-text) 35%, transparent)"></div><div class="k" style="font-size:9px">SAB</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px"><div style="height:18%;background:color-mix(in srgb, var(--color-text) 35%, transparent)"></div><div class="k" style="font-size:9px">DOM</div></div>
+        <div style="display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:5px"><div style="height:48%;background:var(--color-text)"></div><div class="k" style="font-size:9px">LUN</div></div>
+      </div>
+    </div>
+    <div style="padding:14px 16px">
+      <div class="k" style="margin-bottom:8px">Ultima sessione · Dawn Patrol</div>
+      <div style="display:flex;justify-content:space-between;font-size:13px"><span>12 set · Punta Sabbioni</span><span style="color:color-mix(in srgb, var(--color-text) 60%, transparent)">1h 40 · 21 onde</span></div>
+      <button class="btn btn-block btn-secondary">Tutte le sessioni</button>
+    </div>
+  </div>
+</x-import>
+</div>
+
+<div class="dv-opt" id="1c">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Desktop · foglio dati: tutti gli spot, ora per ora</div>
+<div class="dv-card" style="width:1140px">
+  <div style="padding:22px 24px 18px;border-bottom:2px solid var(--color-divider);display:flex;align-items:flex-end;gap:28px">
+    <div style="margin-right:auto"><div class="k">Cavallino Treporti · mercoledì 16 settembre</div><h2 style="margin:6px 0 0">Finestra utile oggi: 06:40 → 10:20</h2></div>
+    <div style="text-align:left"><div class="k">Migliore</div><div style="font:800 20px 'Archivo',sans-serif;color:var(--color-accent-700)">Punta Sabbioni</div></div>
+    <div class="seg"><label class="seg-opt"><input type="radio" name="c-unit" checked>Metri</label><label class="seg-opt"><input type="radio" name="c-unit">Piedi</label></div>
+  </div>
+  <div style="display:grid;grid-template-columns:200px repeat(8,minmax(0,1fr))">
+    <div class="cell" style="padding:10px 14px;border-bottom:2px solid var(--color-divider);border-right:2px solid var(--color-divider)"><div class="k">Spot / ora</div></div>
+    <div class="cell" style="padding:10px 8px;border-bottom:2px solid var(--color-divider)"><div class="k">06</div></div>
+    <div class="cell" style="padding:10px 8px;border-bottom:2px solid var(--color-divider);background:var(--color-accent-200)"><div class="k" style="color:var(--color-accent-700)">08</div></div>
+    <div class="cell" style="padding:10px 8px;border-bottom:2px solid var(--color-divider);background:var(--color-accent-200)"><div class="k" style="color:var(--color-accent-700)">10</div></div>
+    <div class="cell" style="padding:10px 8px;border-bottom:2px solid var(--color-divider)"><div class="k">12</div></div>
+    <div class="cell" style="padding:10px 8px;border-bottom:2px solid var(--color-divider)"><div class="k">14</div></div>
+    <div class="cell" style="padding:10px 8px;border-bottom:2px solid var(--color-divider)"><div class="k">16</div></div>
+    <div class="cell" style="padding:10px 8px;border-bottom:2px solid var(--color-divider)"><div class="k">18</div></div>
+    <div class="cell" style="padding:10px 8px;border-bottom:2px solid var(--color-divider)"><div class="k">20</div></div>
+
+    <div class="cell" style="padding:12px 14px;border-bottom:1px solid var(--color-divider);border-right:2px solid var(--color-divider)"><div style="font-weight:800;font-size:14px">Punta Sabbioni</div><div class="k">onda m / periodo s</div></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,8<span class="k"> 7</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);background:var(--color-accent-200);font-variant-numeric:tabular-nums;font-size:14px;font-weight:800">0,9<span class="k" style="color:var(--color-accent-700)"> 7</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);background:var(--color-accent-200);font-variant-numeric:tabular-nums;font-size:14px;font-weight:800">0,9<span class="k" style="color:var(--color-accent-700)"> 6</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,7<span class="k"> 6</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,6<span class="k"> 5</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,5<span class="k"> 5</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,4<span class="k"> 5</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,4<span class="k"> 4</span></div>
+
+    <div class="cell" style="padding:12px 14px;border-bottom:1px solid var(--color-divider);border-right:2px solid var(--color-divider)"><div style="font-size:14px">Camping Mediterraneo</div><div class="k">onda m / periodo s</div></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,6<span class="k"> 6</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);background:var(--color-accent-100);font-variant-numeric:tabular-nums;font-size:14px">0,7<span class="k"> 6</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);background:var(--color-accent-100);font-variant-numeric:tabular-nums;font-size:14px">0,7<span class="k"> 6</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,5<span class="k"> 5</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,5<span class="k"> 5</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,4<span class="k"> 5</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,3<span class="k"> 4</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,3<span class="k"> 4</span></div>
+
+    <div class="cell" style="padding:12px 14px;border-bottom:2px solid var(--color-divider);border-right:2px solid var(--color-divider)"><div style="font-size:14px">Pizzeria Soleado</div><div class="k">onda m / periodo s</div></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:2px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,5<span class="k"> 6</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:2px solid var(--color-divider);background:var(--color-accent-100);font-variant-numeric:tabular-nums;font-size:14px">0,6<span class="k"> 6</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:2px solid var(--color-divider);background:var(--color-accent-100);font-variant-numeric:tabular-nums;font-size:14px">0,6<span class="k"> 5</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:2px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,5<span class="k"> 5</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:2px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,4<span class="k"> 5</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:2px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,4<span class="k"> 4</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:2px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,3<span class="k"> 4</span></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:2px solid var(--color-divider);font-variant-numeric:tabular-nums;font-size:14px">0,3<span class="k"> 4</span></div>
+
+    <div class="cell" style="padding:12px 14px;border-bottom:1px solid var(--color-divider);border-right:2px solid var(--color-divider)"><div class="k">Vento</div></div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-size:13px">NE 6</div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);background:var(--color-accent-200);font-size:13px;color:var(--color-accent-700)">NE 8</div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);background:var(--color-accent-200);font-size:13px;color:var(--color-accent-700)">NE 9</div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-size:13px">E 11</div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-size:13px">SE 13</div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-size:13px">S 14</div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-size:13px">S 12</div>
+    <div class="cell" style="padding:12px 8px;border-bottom:1px solid var(--color-divider);font-size:13px">SO 9</div>
+
+    <div class="cell" style="padding:12px 14px;border-right:2px solid var(--color-divider)"><div class="k">Marea</div></div>
+    <div class="cell" style="padding:12px 8px;font-size:13px">0,4 ↑</div>
+    <div class="cell" style="padding:12px 8px;background:var(--color-accent-200);font-size:13px;color:var(--color-accent-700)">0,7 ↑</div>
+    <div class="cell" style="padding:12px 8px;background:var(--color-accent-200);font-size:13px;color:var(--color-accent-700)">0,8 ↓</div>
+    <div class="cell" style="padding:12px 8px;font-size:13px">0,6 ↓</div>
+    <div class="cell" style="padding:12px 8px;font-size:13px">0,3 ↓</div>
+    <div class="cell" style="padding:12px 8px;font-size:13px">0,2 ↑</div>
+    <div class="cell" style="padding:12px 8px;font-size:13px">0,5 ↑</div>
+    <div class="cell" style="padding:12px 8px;font-size:13px">0,7 ↑</div>
+  </div>
+  <div style="display:flex;gap:0;border-top:2px solid var(--color-divider)">
+    <div class="cell" style="flex:1;border-right:2px solid var(--color-divider)"><div class="k">Acqua</div><div class="n" style="font-size:26px;margin-top:6px">23°</div></div>
+    <div class="cell" style="flex:1;border-right:2px solid var(--color-divider)"><div class="k">Aria</div><div class="n" style="font-size:26px;margin-top:6px">21°</div></div>
+    <div class="cell" style="flex:1;border-right:2px solid var(--color-divider)"><div class="k">Alba / tramonto</div><div class="n" style="font-size:26px;margin-top:6px">06:58 / 19:24</div></div>
+    <div class="cell" style="flex:1;border-right:2px solid var(--color-divider)"><div class="k">Boa Acqua Alta</div><div class="n" style="font-size:26px;margin-top:6px">0,8 m · 7 s</div></div>
+    <div class="cell" style="flex:1"><div class="k">Tavola</div><div class="n" style="font-size:26px;margin-top:6px">8'6&quot; rigida</div></div>
+  </div>
+</div>
+</div>
+
+<div class="dv-opt" id="1d">
+<div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>Mobile · manifesto: accento pieno, un solo numero per volta</div>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="393px,852px">
+  <div style="background:var(--color-accent);color:var(--color-bg);min-height:100%;padding-top:62px;padding-bottom:40px;font-family:'Archivo',system-ui,sans-serif;display:flex;flex-direction:column">
+    <div style="display:flex;align-items:baseline;gap:8px;padding:12px 18px;border-bottom:2px solid color-mix(in srgb, var(--color-bg) 45%, transparent)">
+      <span style="font:800 13px 'Archivo',sans-serif;letter-spacing:.08em;margin-right:auto">PUNTA SABBIONI</span>
+      <span style="font:800 10px 'Archivo',sans-serif;letter-spacing:.11em;opacity:.8">MER 07:12</span>
+    </div>
+    <div style="padding:26px 18px 22px;border-bottom:2px solid color-mix(in srgb, var(--color-bg) 45%, transparent)">
+      <div style="font:800 10px 'Archivo',sans-serif;letter-spacing:.11em;opacity:.8">VAI ADESSO</div>
+      <div style="font:800 128px/.82 'Archivo',sans-serif;letter-spacing:-.05em;margin:10px 0 0">0,9</div>
+      <div style="font:800 22px 'Archivo',sans-serif;letter-spacing:-.01em">metri · 7 secondi</div>
+      <p style="margin:14px 0 0;font-size:15px;max-width:26ch;text-wrap:pretty">Offshore NE 8 kn. Chiude alle 10:20, poi sale il vento da SE.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;border-bottom:2px solid color-mix(in srgb, var(--color-bg) 45%, transparent)">
+      <div style="padding:14px 18px;border-right:2px solid color-mix(in srgb, var(--color-bg) 45%, transparent)"><div style="font:800 10px 'Archivo',sans-serif;letter-spacing:.11em;opacity:.8">MAREA</div><div style="font:800 30px 'Archivo',sans-serif;margin-top:6px">↑ 0,7</div></div>
+      <div style="padding:14px 18px"><div style="font:800 10px 'Archivo',sans-serif;letter-spacing:.11em;opacity:.8">ACQUA</div><div style="font:800 30px 'Archivo',sans-serif;margin-top:6px">23°</div></div>
+    </div>
+    <div style="padding:16px 18px;border-bottom:2px solid color-mix(in srgb, var(--color-bg) 45%, transparent)">
+      <div style="font:800 10px 'Archivo',sans-serif;letter-spacing:.11em;opacity:.8;margin-bottom:10px">ALTERNATIVE</div>
+      <div style="display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px solid color-mix(in srgb, var(--color-bg) 35%, transparent)"><span>Camping Mediterraneo</span><span style="opacity:.85">0,7 m · 5/10</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:14px;padding:6px 0"><span>Pizzeria Soleado</span><span style="opacity:.85">0,6 m · 4/10</span></div>
+    </div>
+    <div style="padding:16px 18px;margin-top:auto">
+      <div style="font:800 10px 'Archivo',sans-serif;letter-spacing:.11em;opacity:.8;margin-bottom:8px">MIGLIORE DELLA SETTIMANA</div>
+      <div style="font:800 28px/1.05 'Archivo',sans-serif;letter-spacing:-.02em">GIO 18 · 06:00<br>1,4 m a 8 s</div>
+      <div style="display:flex;gap:8px;margin-top:14px"><button style="font:800 13px 'Archivo',sans-serif;background:var(--color-bg);color:var(--color-accent);border:0;padding:10px 14px;text-align:left;cursor:pointer">PROMEMORIA</button><button style="font:800 13px 'Archivo',sans-serif;background:transparent;color:var(--color-bg);border:2px solid var(--color-bg);padding:10px 14px;text-align:left;cursor:pointer">DETTAGLIO</button></div>
+    </div>
+  </div>
+</x-import>
+</div>
+
+</div>
+<p class="dv-next">Prossimi passi: «sviluppa <a class="dv-oid" href="#1a">1a</a> con la schermata 7 giorni e quella sessioni» · «versione mobile di <a class="dv-oid" href="#1c">1c</a>» · «tieni la palette Notte per tutto» · «nuove direzioni per la vista confronto spot»</p>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;palette&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Marea (teal)&quot;,&quot;Sabbia&quot;,&quot;Notte&quot;],&quot;default&quot;:&quot;Marea (teal)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Palette&quot;}}">
+class Component extends DCLogic {
+  apply() {
+    const p = { "Marea (teal)": "marea", "Sabbia": "sabbia", "Notte": "notte" };
+    document.body.dataset.pal = p[this.props.palette] || "marea";
+  }
+  componentDidMount() { this.apply(); }
+  componentDidUpdate() { this.apply(); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
