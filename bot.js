@@ -2,113 +2,86 @@ import express from 'express';
 import puppeteer from 'puppeteer';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import TelegramBot from 'node-telegram-bot-api';
 
 // Load environment variables
 const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN;
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-async function startBot() {
-  if (!TELEGRAM_TOKEN) {
-    console.error("ERRORE: TELEGRAM_TOKEN mancante nelle variabili d'ambiente.");
-    process.exit(1);
-  }
+if (!TELEGRAM_TOKEN) {
+  console.error("ERRORE: TELEGRAM_TOKEN mancante nelle variabili d'ambiente.");
+  process.exit(1);
+}
 
-  // If no chat ID is provided, try to fetch the latest message to find the Chat ID
-  if (!TELEGRAM_CHAT_ID) {
-    console.log("TELEGRAM_CHAT_ID non fornito. Provo a recuperarlo dagli ultimi messaggi inviati al bot...");
+// 1. Start a persistent Express Server to serve the static dashboard
+const app = express();
+app.use(express.static(__dirname));
+
+const port = process.env.PORT || 3000;
+const server = app.listen(port, () => {
+  const localUrl = `http://localhost:${port}`;
+  console.log(`Server locale avviato su ${localUrl}`);
+
+  // 2. Initialize Telegram Bot in Polling Mode
+  const bot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
+  console.log("Bot Telegram avviato e in ascolto...");
+
+  // Handle /bollettino command
+  bot.onText(/\/(start|bollettino)/, async (msg) => {
+    const chatId = msg.chat.id;
+
+    // Acknowledge request
+    bot.sendMessage(chatId, "🌊 Ricevuto! Generazione del bollettino surf in corso (richiede qualche secondo)...");
+    
+    let browser = null;
     try {
-      const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/getUpdates`);
-      const data = await res.json();
-      if (data.ok && data.result.length > 0) {
-        const lastMessage = data.result[data.result.length - 1];
-        const chatId = lastMessage.message?.chat?.id;
-        if (chatId) {
-          console.log(`\n✅ HO TROVATO IL TUO CHAT ID: ${chatId}`);
-          console.log(`Inserisci questo valore come variabile TELEGRAM_CHAT_ID e riavvia lo script.\n`);
-          process.exit(0);
-        }
-      }
-      console.log("\n❌ Nessun messaggio trovato. Per favore invia un messaggio al tuo bot su Telegram (es. 'Ciao') e poi riavvia questo script.\n");
-      process.exit(1);
-    } catch (e) {
-      console.error("Errore nel recupero degli updates da Telegram:", e);
-      process.exit(1);
-    }
-  }
-
-  console.log("Avvio generazione report PDF...");
-
-  // 1. Start temporary Express Server to serve the static dashboard
-  const app = express();
-  app.use(express.static(__dirname));
-  
-  const server = app.listen(0, async () => {
-    const port = server.address().port;
-    const localUrl = `http://localhost:${port}`;
-    console.log(`Server temporaneo avviato su ${localUrl}`);
-
-    try {
-      // 2. Launch Puppeteer
-      const browser = await puppeteer.launch({
+      // Launch Puppeteer
+      browser = await puppeteer.launch({
         headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox']
       });
       const page = await browser.newPage();
       
-      // Set viewport for a nice desktop layout screenshot
-      await page.setViewport({ width: 1200, height: 1600, deviceScaleFactor: 2 });
+      // Set viewport for a nice desktop/tablet layout screenshot
+      await page.setViewport({ width: 1000, height: 1200, deviceScaleFactor: 2 });
       
-      console.log("Apertura dashboard nel browser invisibile...");
-      await page.goto(localUrl, { waitUntil: 'networkidle0', timeout: 30000 });
+      console.log(`Generazione PDF per chat ${chatId}...`);
+      
+      // Pass ?mode=pdf to activate the PDF layout
+      await page.goto(`${localUrl}?mode=pdf`, { waitUntil: 'networkidle0', timeout: 30000 });
 
       // Add a slight delay to ensure the Open-Meteo API data is fully rendered on the DOM
       await new Promise(r => setTimeout(r, 2000));
 
-      console.log("Creazione PDF in corso...");
       const pdfBuffer = await page.pdf({
         format: 'A4',
         printBackground: true,
         margin: { top: '20px', bottom: '20px', left: '20px', right: '20px' }
       });
-      
-      await browser.close();
 
-      // 3. Send via Telegram
-      console.log("Invio PDF su Telegram...");
-      
-      // Using native fetch with FormData for multipart/form-data upload
-      const formData = new FormData();
-      formData.append('chat_id', TELEGRAM_CHAT_ID);
-      formData.append('caption', '🌊 Ecco il tuo report surf mattutino di Mareggia!');
-      
-      // We must pass the buffer as a Blob/File object in native fetch
-      const pdfBlob = new Blob([pdfBuffer], { type: 'application/pdf' });
-      formData.append('document', pdfBlob, 'mareggia_report.pdf');
-
-      const sendRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument`, {
-        method: 'POST',
-        body: formData
+      // Send PDF to user
+      await bot.sendDocument(chatId, pdfBuffer, {
+        caption: '🌊 Ecco il tuo bollettino del mare in tempo reale!'
+      }, {
+        filename: 'bollettino_mareggia.pdf',
+        contentType: 'application/pdf'
       });
-
-      const sendData = await sendRes.json();
-      if (sendData.ok) {
-        console.log("✅ Report inviato con successo!");
-      } else {
-        console.error("❌ Errore nell'invio del report:", sendData);
-      }
-
+      
+      console.log(`✅ Bollettino inviato con successo a ${chatId}.`);
     } catch (e) {
-      console.error("Errore durante l'esecuzione del bot:", e);
+      console.error("Errore durante la generazione del bollettino:", e);
+      bot.sendMessage(chatId, "❌ Ops! Si è verificato un errore durante la generazione del bollettino.");
     } finally {
-      // Clean up server
-      server.close();
-      console.log("Processo terminato.");
-      process.exit(0);
+      if (browser) {
+        await browser.close();
+      }
     }
   });
-}
-
-startBot();
+  
+  // Basic error handling
+  bot.on('polling_error', (error) => {
+    console.error("Polling error:", error);
+  });
+});

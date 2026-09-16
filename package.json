@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "express": "^4.19.0",
+    "node-telegram-bot-api": "^2.1.0",
     "puppeteer": "^22.6.0"
   }
 }

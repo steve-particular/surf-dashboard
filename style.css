@@ -400,3 +400,28 @@ body {
     grid-column: span 1;
   }
 }
+
+/* ----------------------------------------------------
+   PDF MODE (Print optimizations)
+   ---------------------------------------------------- */
+.pdf-mode .sessions-container {
+  display: none !important;
+}
+.pdf-mode .compare-container {
+  border-right: none !important;
+}
+.pdf-mode .nav-links, .pdf-mode .theme-switch-container, .pdf-mode .action-buttons, .pdf-mode .mobile-only {
+  display: none !important;
+}
+.pdf-mode .app-header {
+  position: static;
+  border-bottom: 1px solid var(--color-divider);
+}
+.pdf-mode .dashboard-container {
+  margin: 10px auto;
+}
+.pdf-mode .maps-grid {
+  grid-template-columns: 1fr;
+  max-width: 400px;
+}
+

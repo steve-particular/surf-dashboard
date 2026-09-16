@@ -1,6 +1,13 @@
 import { dashboardData } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Check if we are in PDF rendering mode
+  const urlParams = new URLSearchParams(window.location.search);
+  const isPdfMode = urlParams.get('mode') === 'pdf';
+  if (isPdfMode) {
+    document.body.classList.add('pdf-mode');
+  }
+
   // Theme Switching
   const themeSelector = document.getElementById('theme-selector');
   themeSelector.addEventListener('change', (e) => {
@@ -33,7 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const mapsGrid = document.getElementById('maps-grid');
     if (mapsGrid) {
       mapsGrid.innerHTML = '';
-      dashboardData.maps.forEach(map => {
+      
+      // In PDF mode, only show the first map (current day)
+      const mapsToShow = isPdfMode ? [dashboardData.maps[0]] : dashboardData.maps;
+      
+      mapsToShow.forEach(map => {
         const item = document.createElement('div');
         item.className = 'map-item';
         
