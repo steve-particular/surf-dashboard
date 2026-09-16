@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mapsGrid) {
       mapsGrid.innerHTML = '';
       
-      // In PDF mode, only show the first map (current day)
-      const mapsToShow = isPdfMode ? [dashboardData.maps[0]] : dashboardData.maps;
+      // Ensure we display all maps
+      const mapsToShow = dashboardData.maps;
       
       mapsToShow.forEach(map => {
         const item = document.createElement('div');

@@ -420,8 +420,10 @@ body {
 .pdf-mode .dashboard-container {
   margin: 10px auto;
 }
-.pdf-mode .maps-grid {
-  grid-template-columns: 1fr;
-  max-width: 400px;
+.pdf-mode .webcam-container {
+  display: none !important;
+}
+.pdf-mode .forecast-chart-container {
+  flex: 1 1 100% !important;
 }
 
